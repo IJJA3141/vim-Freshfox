@@ -6,3 +6,5 @@ Originally, it was ment to be used with vimtex since the pluging can't refresh t
 But vim-Freshfox can be used without vimtex just by calling th refresh function of the module.
 
 (it also work with firefox dev)
+
+The pluging works by calling an executable who's a compiled ahk script. This script select the Firefox window, refresh it by sending the F5 key and select back the original window.
