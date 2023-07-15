@@ -21,7 +21,7 @@ Using [Lazy]([https://github.com/junegunn/vim-plu](https://github.com/folke/lazy
 }
 ```
 To configure vim-Freshfox to auto reload after [vimtex](https://github.com/lervag/vimtex) autocompiled ad this to your config:
-```vim
+```lua
 " Lazy.nvim
 {
   "IJJA3141/vim-Freshfox",
@@ -36,8 +36,8 @@ To configure vim-Freshfox to auto reload after [vimtex](https://github.com/lerva
 }
 ```
 Although I would recomand loading it from an other file like:
-```vim
-" Lazy.nvim
+```lua
+--Lazy.nvim
 {
   "IJJA3141/vim-Freshfox",
   config = function()
@@ -45,8 +45,8 @@ Although I would recomand loading it from an other file like:
   end,
 }
 ```
-and in /custom/configs/vim-Freshfox.lua:
-```vim
+```lua
+--/custom/configs/vim-Freshfox.lua:
 local Freshfox = require('vim-Freshfox')
 
 Freshfox.setup({})
@@ -61,9 +61,9 @@ vim.api.nvim_create_autocmd('User', {
 ## 🚀 Usage
 
 Out of the box, vim-Freshfox provide three function: 
--**FreshfoxRefresh**
--**FreshfoxStart**
--**FreshfoxStop**
+--**FreshfoxRefresh**
+--**FreshfoxStart**
+--**FreshfoxStop**
 
 ### 🔃 FreshfoxRefresh
 
@@ -74,12 +74,12 @@ it simply refresh the browser page.
 
 This command will start auto refresh on buffer save.
 It accepts file type as parameters
+If no parameter is passed to the command vim-Freshfox will reload for every file type.
 
 As an exemple:
 ```
 :Freshfox *.lua text *.tex
 ```
-If no parameter is passed to the command vim-Freshfox will reload for every file type.
 
 ### 🛑 FreshfoxStop
 
