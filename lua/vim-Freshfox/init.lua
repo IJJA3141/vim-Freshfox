@@ -28,6 +28,7 @@ end
 M.setup = function()
   vim.api.nvim_create_user_command('FreshfoxStart', M.start, { nargs = '?' })
   vim.api.nvim_create_user_command('FreshfoxStop', M.stop, {})
+  vim.api.nvim_create_user_command('FreshfoxRefresh', M.refresh, {})
 end
 
 return M
