@@ -61,9 +61,9 @@ vim.api.nvim_create_autocmd('User', {
 ## 🚀 Usage
 
 Out of the box, vim-Freshfox provide three function: 
-- [FreshfoxRefresh](###FreshfoxRefresh)
-- [FreshfoxStart](###FreshfoxStart)
-- [FreshfoxStop](###FreshfoxStop)
+- [FreshfoxRefresh](#-freshfoxrefresh))
+- [FreshfoxStart](#-freshfoxstart))
+- [FreshfoxStop](#-freshfoxstop))
 
 ### 🔃 FreshfoxRefresh
 
