@@ -14,7 +14,7 @@ The pluging works by calling an executable who's a compiled ahk script. This scr
 Just add this repo to your plugin manager.
 
 Using [Lazy]([https://github.com/junegunn/vim-plu](https://github.com/folke/lazy.nvim):
-```vim
+```lua
 " Lazy.nvim
 {
   "IJJA3141/vim-Freshfox",
@@ -61,9 +61,9 @@ vim.api.nvim_create_autocmd('User', {
 ## 🚀 Usage
 
 Out of the box, vim-Freshfox provide three function: 
---**FreshfoxRefresh**
---**FreshfoxStart**
---**FreshfoxStop**
+--FreshfoxRefresh
+--FreshfoxStart
+--FreshfoxStop
 
 ### 🔃 FreshfoxRefresh
 
