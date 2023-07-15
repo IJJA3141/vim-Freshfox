@@ -13,7 +13,7 @@ The pluging works by calling an executable who's a compiled ahk script. This scr
 
 Just add this repo to your plugin manager.
 
-Using [vim-plug]([https://github.com/junegunn/vim-plu](https://github.com/folke/lazy.nvim):
+Using [Lazy]([https://github.com/junegunn/vim-plu](https://github.com/folke/lazy.nvim):
 ```vim
 " Lazy.nvim
 {
@@ -84,4 +84,4 @@ If no parameter is passed to the command vim-Freshfox will reload for every file
 ### 🛑 FreshfoxStop
 
 This command doesn't take any parameters.
-It deregister the event to stop the auto refresh-
+It deregister the event to stop the auto refresh
