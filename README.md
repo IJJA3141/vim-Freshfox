@@ -1,10 +1,87 @@
-# vim-Freshfox
+# ❄️🦊 vim-Freshfox
 
-vim-Freshfox is a Vim plugin that automates page reloading with Firefox.
+**vim-Freshfox** is a Vim plugin that automates page reloading with Firefox.
 
-Originally, it was ment to be used with vimtex since the pluging can't refresh the pdf if it's rendered with firefox.
-But vim-Freshfox can be used without vimtex just by calling the refresh function of the module.
+Originally, this plugin was ment to be used with vimtex since the it can't refresh the pdf rendered by firefox.
+But vim-Freshfox can be used without.
+
+The pluging works by calling an executable who's a compiled ahk script. This script select the Firefox window, refresh it by sending the F5 key and select back the original window.
 
 (it also work with firefox dev)
 
-The pluging works by calling an executable who's a compiled ahk script. This script select the Firefox window, refresh it by sending the F5 key and select back the original window.
+## 📦 Installation & ⚙️ setup
+
+Just add this repo to your plugin manager.
+
+Using [vim-plug]([https://github.com/junegunn/vim-plu](https://github.com/folke/lazy.nvim):
+```vim
+" Lazy.nvim
+{
+  "IJJA3141/vim-Freshfox",
+}
+```
+To configure vim-Freshfox to auto reload after [vimtex](https://github.com/lervag/vimtex) autocompiled ad this to your config:
+```vim
+" Lazy.nvim
+{
+  "IJJA3141/vim-Freshfox",
+  config = function()
+    require('vim-Freshfox').setup()
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'VimtexEventCompileSuccess',
+      callback = require('vim-Freshfox').refresh,
+      group = vim.api.nvim_create_augroup('vimtex_refresh_firefox', {clear = true})
+    })
+  end,
+}
+```
+Although I would recomand loading it from an other file like:
+```vim
+" Lazy.nvim
+{
+  "IJJA3141/vim-Freshfox",
+  config = function()
+    require('custom.configs.vim-Freshfox')
+  end,
+}
+```
+and in /custom/configs/vim-Freshfox.lua:
+```vim
+local Freshfox = require('vim-Freshfox')
+
+Freshfox.setup({})
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'VimtexEventCompileSuccess',
+  callback = Freshfox.refresh,
+  group = vim.api.nvim_create_augroup('vimtex_refresh_firefox', {clear = true})
+})
+```
+
+## 🚀 Usage
+
+Out of the box, vim-Freshfox provide three function: 
+-**FreshfoxRefresh**
+-**FreshfoxStart**
+-**FreshfoxStop**
+
+### 🔃 FreshfoxRefresh
+
+This command doesn't take any parametres,
+it simply refresh the browser page.
+
+### ✅ FreshfoxStart
+
+This command will start auto refresh on buffer save.
+It accepts file type as parameters
+
+As an exemple:
+```
+:Freshfox *.lua text *.tex
+```
+If no parameter is passed to the command vim-Freshfox will reload for every file type.
+
+### 🛑 FreshfoxStop
+
+This command doesn't take any parameters.
+It deregister the event to stop the auto refresh-
